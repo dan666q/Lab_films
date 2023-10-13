@@ -1,47 +1,83 @@
-import React from 'react'
-import { TextField, Button } from '@mui/material'
-export default function Contact() {
+// ContactForm.js
+import React, { useState } from 'react';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import { Container } from '@mui/material';
+
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log(formData);
+  };
+
   return (
-    <div>
-      <form className='mt-5 mb-5'>
+    <Container>
+      <p className='fs-1 mt-5'>Contact with us</p>
+
+      <form onSubmit={handleSubmit} className='mt-3 ps-5 pe-5'>
         <TextField
-          style={{ width: "400px", margin: "5px" }}
-          type="text"
-          label="Name"
+          fullWidth
+          label="Your Name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          margin="normal"
           variant="outlined"
-          className='mt-5'
         />
-<br />
-<TextField
-          style={{ width: "400px", margin: "5px" }}
-          type="text"
-          label="Email"
+        <TextField
+          fullWidth
+          label="Your Email"
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          margin="normal"
           variant="outlined"
-          className=''
         />
-<br />
-<TextField
-          style={{ width: "400px", margin: "5px" }}
-          type="text"
-          label="Phone"
+        <TextField
+          fullWidth
+          label="Your Phone Number"
+          name="phone"
+          type="tel"
+          value={formData.phone}
+          onChange={handleChange}
+          margin="normal"
           variant="outlined"
-          className=''
         />
-<br />
-<TextField className='mt-3'
-          id="standard-multiline-static"
-          label="Message"
+        <TextField
+          fullWidth
+          label="Your Message"
+          name="message"
           multiline
           rows={4}
-          defaultValue="Your message"
-          variant="standard"
-          style={{ width: "400px"}}
+          value={formData.message}
+          onChange={handleChange}
+          margin="normal"
+          variant="outlined"
         />
-<br />
-        <Button variant="contained" color="primary" className='mb-5 mt-5'>
+        <Button type="submit" variant="contained" color="primary" className='mb-5'>
           Submit
         </Button>
       </form>
-</div>
-  )
-}
+    </Container>
+
+  );
+};
+
+export default ContactForm;

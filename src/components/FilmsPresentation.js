@@ -22,7 +22,7 @@ export default function FilmsPresentation() {
                                     alt="player"
                                 />
                                 <CardContent >
-                                    <Typography gutterBottom variant="h5" component="div">
+                                    <Typography gutterBottom variant="h5" component="div" className='ellipsis'>
                                         {film.Title}
                                     </Typography>
                                     <p>{film.Year}</p>

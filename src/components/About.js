@@ -29,11 +29,7 @@ export default function About() {
                 </Typography>
               </CardContent>
             </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                Contact
-              </Button>
-            </CardActions>
+
           </Card>
         </div>
         <div className='col-md-4'>
@@ -55,11 +51,7 @@ export default function About() {
                 </Typography>
               </CardContent>
             </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                Contact
-              </Button>
-            </CardActions>
+    
           </Card>
         </div>
         <div className='col-md-4'>
@@ -81,11 +73,6 @@ export default function About() {
                 </Typography>
               </CardContent>
             </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                Contact
-              </Button>
-            </CardActions>
           </Card>
         </div>
       </div>

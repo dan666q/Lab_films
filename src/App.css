@@ -43,3 +43,9 @@
 .content {
   text-align: justify;
 }
+.ellipsis{
+  
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
