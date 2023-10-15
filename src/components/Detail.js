@@ -47,7 +47,7 @@ export default function Detail() {
                     <p className='fs-4'>Nation: {film.Nation}</p>
                     <p className='fs-4'>Year: {film.Year}</p>
                     <p className='fs-5'>{film.Info}</p>
-                    <Button variant="outlined" onClick={handleClickOpen}>
+                    <Button variant="contained" onClick={handleClickOpen} sx={{backgroundColor:'#0d6182'}}>
                         Trailer
                     </Button>
                     {/* <Link onClick={() => setIsOpen(true)}><button className='btn btn-outline-primary'>Trailer</button></Link> */}

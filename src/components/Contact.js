@@ -71,7 +71,7 @@ const ContactForm = () => {
           margin="normal"
           variant="outlined"
         />
-        <Button type="submit" variant="contained" color="primary" className='mb-5'>
+        <Button type="submit" variant="contained" className='mb-5' sx={{backgroundColor:'#0d6182'}}>
           Submit
         </Button>
       </form>

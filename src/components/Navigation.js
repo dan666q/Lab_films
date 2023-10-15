@@ -54,7 +54,7 @@ function Navigation() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{backgroundColor:'#0d6182'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -131,7 +131,7 @@ function Navigation() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link to={page.link}>
+              <Link to={page.link} style={{ textDecoration: 'none' }}>
                 <Button
                   key={page.name}
                   onClick={handleCloseNavMenu}

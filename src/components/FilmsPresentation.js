@@ -14,6 +14,8 @@ export default function FilmsPresentation() {
                 {Films.map((film) => (
                     <div className='col-md-3'>
                         <Card sx={{ maxWidth: 250, }} className='mt-5'>
+                            <CardActionArea >
+                            <Link to={`Detail/${film.id}`} style={{ textDecoration: 'none', color:"inherit" }}>
                             <CardMedia
                                 component="img"
                                 height="400"
@@ -35,13 +37,13 @@ export default function FilmsPresentation() {
                             {player.info}
                             </Typography> */}
                             </CardContent>
-                            <CardActions>
-                                <Link to={`Detail/${film.id}`}>
+                            {/* <CardActions>
                                     <Button size="small" color="primary">
                                         Detail
                                     </Button>
-                                </Link>
-                            </CardActions>
+                            </CardActions> */}
+                            </Link>
+                            </CardActionArea>
                         </Card>
                     </div>
                 ))}
