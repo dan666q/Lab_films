@@ -12,8 +12,9 @@ export default function Footer() {
         p: 6,
       }}
       component="footer"
+      className="mt-5"
     >
-      <Container maxWidth="sm" >
+      <Container maxWidth="sm">
         <Typography variant="body2" color="text.secondary" align="center">
           {"Copyright © "}
           <Link color="inherit" href="">

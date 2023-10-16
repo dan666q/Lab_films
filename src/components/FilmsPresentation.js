@@ -6,10 +6,12 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions, Container, Box, Tooltip } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { Films } from '../shared/ListOfFilm';
+import Carousel from './Carousel';
 export default function FilmsPresentation() {
     return (
-        <Container className='mt-5 mb-5'>
-            <p className='fs-1 mt-5'>List Of Films</p>
+        <Container>
+            <Carousel/>
+            <p className='fs-2 mt-5'>List Of Films</p>
             <div className='row'>
                 {Films.map((film) => (
                     <div className='col-md-3'>
@@ -18,9 +20,9 @@ export default function FilmsPresentation() {
                             <Link to={`Detail/${film.id}`} style={{ textDecoration: 'none', color:"inherit" }}>
                             <CardMedia
                                 component="img"
-                                height="400"
+                                height="auto"
                                 src={film.Image}
-                                alt="player"
+                                alt="film"
                             />
                             <CardContent >
                                 <Tooltip title={film.Title} arrow>
@@ -28,8 +30,6 @@ export default function FilmsPresentation() {
                                     {film.Title}
                                 </Typography>
                                 </Tooltip>
-
-                           
                                 <Typography gutterBottom variant="h7" component="div" className='ellipsis'>
                                     {film.Year}
                                 </Typography>
@@ -47,7 +47,6 @@ export default function FilmsPresentation() {
                         </Card>
                     </div>
                 ))}
-
             </div>
         </Container>
     );

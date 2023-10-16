@@ -21,7 +21,7 @@
           },
           {
             "id": 4,
-            "title": "PhuongNam Film today?",
+            "title": "PhuongNam Phim today?",
             "content": "Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.",
             "image": "assets/images/pnp.jpg"
           }

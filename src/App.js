@@ -12,7 +12,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { useState } from 'react';
 import { createTheme } from '@mui/material/styles';
 import DarkModeSwitch from './components/DarkModeTheme';
-// import Breadcrumb from './components/Breadcrumb';
+import Breadcrumb from './components/Breadcrumb';
 
 const lightTheme = createTheme();
 const darkTheme = createTheme({
@@ -32,9 +32,8 @@ function App() {
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <CssBaseline />
         <Navigation />
-        {/* <Breadcrumb/> */}
         <DarkModeSwitch checked={darkMode} onChange={handleDarkModeToggle}/>
-
+        <Breadcrumb/>
         <Routes>
           <Route path='/' element={<FilmsPresentation />}> </Route>
           <Route path='/Detail/:id' element={<Detail />}></Route>

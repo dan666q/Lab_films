@@ -40,6 +40,7 @@ export default function Detail() {
 
     return (
         <Container className=' mb-5' sx={{ textAlign: 'justify' }}>
+            
             <div className='row mt-5'>
                 <div className='col-md-4'><img className='img-fluid images' src={`../${film.Image}`} /></div>
                 <div className='col-md-8 justify'>

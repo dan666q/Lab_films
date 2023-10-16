@@ -54,7 +54,7 @@ function Navigation() {
   };
 
   return (
-    <AppBar position="static" sx={{backgroundColor:'#0d6182'}}>
+    <AppBar position="static" sx={{ backgroundColor: '#0d6182' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -106,7 +106,9 @@ function Navigation() {
             >
               {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page.name}</Typography>
+                    <Link to={page.link} style={{ textDecoration: 'none' ,  color:'#0d6182'}}>
+                      <Typography textAlign="center" >{page.name}</Typography>
+                    </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -135,7 +137,7 @@ function Navigation() {
                 <Button
                   key={page.name}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block'}}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
                 >
                   {page.name}
                 </Button>

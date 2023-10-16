@@ -10,9 +10,9 @@ const Breadcrumb = () => {
   const pathnames = location.pathname.split('/').filter((x) => x);
 
   return (
-    <Breadcrumbs aria-label="breadcrumb">
+    <Breadcrumbs aria-label="breadcrumb" className='mt-2 ps-5'>
       {pathnames.length > 0 ? (
-        <Link component={RouterLink} to="/">
+        <Link component={RouterLink} to="/" sx={{textDecoration:'none'}}>
           Home
         </Link>
       ) : (
@@ -24,7 +24,7 @@ const Breadcrumb = () => {
         return index === pathnames.length - 1 ? (
           <Typography key={index}>{name}</Typography>
         ) : (
-          <Link key={index} component={RouterLink} to={routeTo}>
+          <Link key={index} component={RouterLink} to={routeTo} sx={{textDecoration:'none'}}>
             {name}
           </Link>
         );
