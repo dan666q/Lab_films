@@ -36,7 +36,7 @@ function App() {
         <Breadcrumb/>
         <Routes>
           <Route path='/' element={<FilmsPresentation />}> </Route>
-          <Route path='/Detail/:id' element={<Detail />}></Route>
+          <Route path='/:id' element={<Detail />}></Route>
           <Route path='/Contact/' element={<Contact />}></Route>
           <Route path='/News/' element={<News />}></Route>
           <Route path='/About/' element={<About />}></Route>

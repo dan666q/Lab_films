@@ -10,6 +10,8 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions, Container, Box, Tooltip } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { Films } from '../shared/ListOfFilm';
+import '../styles/slick-custom.css'; // Import the CSS file
+
 const Carousel = () => {
     
     const settings = {
@@ -56,7 +58,7 @@ const Carousel = () => {
                 {Films.map((film) => (
                     <Card sx={{ maxWidth: '80%', }} className='mt-5'>
                         <CardActionArea >
-                            <Link to={`Detail/${film.id}`} style={{ textDecoration: 'none', color: "inherit" }}>
+                            <Link to={`/${film.id}`} style={{ textDecoration: 'none', color: "inherit" }}>
                                 <CardMedia
                                     component="img"
                                     height="auto"
