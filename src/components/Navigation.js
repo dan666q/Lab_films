@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
-
+import { CardMedia } from '@mui/material';
 const pages = [
   {
     name: 'Home',
@@ -33,6 +33,13 @@ const pages = [
   }
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const Logo = () => {
+  return (
+    <div style={{ textAlign: 'center' }}>
+      <img src="../../assets/images/logo.svg" alt="Logo" style={{ width: '90px'}} className='mt-1' />
+    </div>
+  );
+}
 
 function Navigation() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -72,9 +79,8 @@ function Navigation() {
               textDecoration: 'none',
             }}
           >
-            Films
+            <Logo sx={{width:"100px"}} />
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -106,9 +112,9 @@ function Navigation() {
             >
               {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                    <Link to={page.link} style={{ textDecoration: 'none' ,  color:'#0d6182'}}>
-                      <Typography textAlign="center" >{page.name}</Typography>
-                    </Link>
+                  <Link to={page.link} style={{ textDecoration: 'none', color: '#0d6182' }}>
+                    <Typography textAlign="center" >{page.name}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -129,7 +135,7 @@ function Navigation() {
               textDecoration: 'none',
             }}
           >
-            Films
+            <Logo sx={{width:"100px"}} />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (

@@ -12,7 +12,6 @@ export default function About() {
       <div className='row mb-5'>
         <div className='col-md-4'>
           <Card sx={{ maxWidth: 345 }}>
-            <CardActionArea>
               <CardMedia
                 component="img"
                 height="300"
@@ -28,13 +27,11 @@ export default function About() {
                   species, ranging across all continents except Antarctica
                 </Typography>
               </CardContent>
-            </CardActionArea>
 
           </Card>
         </div>
         <div className='col-md-4'>
           <Card sx={{ maxWidth: 345 }}>
-            <CardActionArea>
               <CardMedia
                 component="img"
                 height="300"
@@ -50,13 +47,11 @@ export default function About() {
                   species, ranging across all continents except Antarctica
                 </Typography>
               </CardContent>
-            </CardActionArea>
     
           </Card>
         </div>
         <div className='col-md-4'>
           <Card sx={{ maxWidth: 345 }}>
-            <CardActionArea>
               <CardMedia
                 component="img"
                 height="300"
@@ -72,7 +67,6 @@ export default function About() {
                   species, ranging across all continents except Antarctica
                 </Typography>
               </CardContent>
-            </CardActionArea>
           </Card>
         </div>
       </div>

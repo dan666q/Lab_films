@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { ListOfNews } from '../shared/ListOfNews';
 export default function FilmsPresentation() {
     return (
+
         <Container className='mt-5 mb-5'>
             <p className='fs-1 mt-5'>Hot News</p>
             <div className='row'>
@@ -15,27 +16,22 @@ export default function FilmsPresentation() {
                     <div className='col-md-4'>
                         <Card sx={{ maxWidth: 345, }} className='mt-5'>
                             <CardActionArea >
-                            <CardMedia
-                                component="img"
-                                height="140"
-                                src={news.image}
-                                alt="image"
-                            />
-                            <CardContent >
-                                <Tooltip title={news.title} arrow>
-                                <Typography gutterBottom variant="h5" component="div"  className='ellipsis'>
-                                    {news.title}
-                                </Typography>
-                                </Tooltip>
-                                <Typography gutterBottom variant="h7" component="div" className='ellipsis'>
-                                    {news.content}
-                                </Typography>
-                            </CardContent>
-                                  <CardActions>
-                                    <Button size="small" color="primary">
-                                        Detail
-                                    </Button>
-                            </CardActions>
+                                <CardMedia
+                                    component="img"
+                                    height="140"
+                                    src={news.image}
+                                    alt="image"
+                                />
+                                <CardContent >
+                                    <Tooltip title={news.title} arrow>
+                                        <Typography gutterBottom variant="h5" component="div" className='ellipsis'>
+                                            {news.title}
+                                        </Typography>
+                                    </Tooltip>
+                                    <Typography gutterBottom variant="h7" component="div" className='ellipsis'>
+                                        {news.content}
+                                    </Typography>
+                                </CardContent>
                             </CardActionArea>
                         </Card>
                     </div>
