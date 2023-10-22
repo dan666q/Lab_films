@@ -13,6 +13,7 @@ import { useState } from 'react';
 import { createTheme } from '@mui/material/styles';
 import DarkModeSwitch from './components/DarkModeTheme';
 import Breadcrumb from './components/Breadcrumb';
+import Dashboard from './components/Dashboard';
 
 const lightTheme = createTheme();
 const darkTheme = createTheme({
@@ -40,8 +41,8 @@ function App() {
           <Route path='/Contact/' element={<Contact />}></Route>
           <Route path='/News/' element={<News />}></Route>
           <Route path='/About/' element={<About />}></Route>
-          {/* <Route path='/Dashboard/' element={<Dashboard />}></Route>
-        <Route path='/EditFilms/:id' element={<EditFilms />}></Route>
+          <Route path='/Dashboard/' element={<Dashboard/>}></Route>
+        {/* <Route path='/EditFilms/:id' element={<EditFilms />}></Route>
         <Route path='/AddFilm/' element={<AddFilm />}></Route> */}
 
         </Routes>
