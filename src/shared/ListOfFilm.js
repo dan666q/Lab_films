@@ -11,7 +11,7 @@ export const Films =[
     Year: '2013', Nation: 'USA', 
     Trailer: 'https://www.youtube.com/embed/g8evyE9TuYk?si=k9HFFvbhLAyeL9Q2',
     Info:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."'},        
-    { id: 4, Image: 'assets/images/lotr1.jpg', Title: 'Lord of the Rings: The Fellowship of the Ring', 
+    { id: 4, Image: 'assets/images/lotr1.jpg', Title: 'The Lord of the Rings: The Fellowship of the Ring', 
     Year: '2001', Nation: 'USA', 
     Trailer: 'https://www.youtube.com/embed/_nZdmwHrcnw?si=UABHIZ7qhM5q0Qv4',
     Info:'"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."'},        
