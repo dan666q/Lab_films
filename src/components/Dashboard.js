@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import { Button, Container, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
     const [films, setFilms] = useState([]);
@@ -44,11 +45,14 @@ export default function Dashboard() {
                             <TableCell align="left">Year</TableCell>
                             <TableCell align="left">Nation</TableCell>
                             <TableCell align="left">Trailer</TableCell>
-                            <TableCell align="left">Info</TableCell>
+                            <TableCell align="left">Information</TableCell>
                             <TableCell align="left">
-                                <Button variant="contained" sx={{ backgroundColor: '#0d6182' }}>
-                                    Add
-                                </Button>
+                                <Link to='/AddFilm'>
+                                    <Button variant="contained" sx={{ backgroundColor: '#0d6182', border: 2 }}>
+                                        Add
+                                    </Button>
+                                </Link>
+
                             </TableCell>
 
                         </TableRow>
@@ -70,9 +74,11 @@ export default function Dashboard() {
                                     {film.Info}
                                 </TableCell>
                                 <TableCell align="left">
-                                    <Button variant="contained" sx={{ backgroundColor: '#0d6182' }}>
-                                        Edit
-                                    </Button>
+                                    <Link to={`/EditFilms/${film.id}`}>
+                                        <Button variant="contained" sx={{ backgroundColor: '#0d6182' }}>
+                                            Edit
+                                        </Button>
+                                    </Link>
                                 </TableCell>
                             </TableRow>
                         ))}

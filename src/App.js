@@ -14,6 +14,9 @@ import { createTheme } from '@mui/material/styles';
 import DarkModeSwitch from './components/DarkModeTheme';
 import Breadcrumb from './components/Breadcrumb';
 import Dashboard from './components/Dashboard';
+import Account from './components/Account';
+import EditFilms from './components/EditFilms';
+import AddFilm from './components/AddFilm';
 
 const lightTheme = createTheme();
 const darkTheme = createTheme({
@@ -33,17 +36,18 @@ function App() {
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <CssBaseline />
         <Navigation />
-        <DarkModeSwitch checked={darkMode} onChange={handleDarkModeToggle}/>
-        <Breadcrumb/>
+        <DarkModeSwitch checked={darkMode} onChange={handleDarkModeToggle} />
+        <Breadcrumb />
         <Routes>
           <Route path='/' element={<FilmsPresentation />}> </Route>
           <Route path='/:id' element={<Detail />}></Route>
           <Route path='/Contact/' element={<Contact />}></Route>
           <Route path='/News/' element={<News />}></Route>
           <Route path='/About/' element={<About />}></Route>
-          <Route path='/Dashboard/' element={<Dashboard/>}></Route>
-        {/* <Route path='/EditFilms/:id' element={<EditFilms />}></Route>
-        <Route path='/AddFilm/' element={<AddFilm />}></Route> */}
+          <Route path='/Dashboard/' element={<Dashboard />}></Route>
+          <Route path='/Account/' element={<Account />}></Route>
+          <Route path='/EditFilms/:id' element={<EditFilms />}></Route>
+          <Route path='/AddFilm/' element={<AddFilm />}></Route>
 
         </Routes>
         <Footer />

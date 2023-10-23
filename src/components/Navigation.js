@@ -30,11 +30,11 @@ const pages = [
     link: '/about'
   }
 ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Account', 'Dashboard', 'Logout'];
 const Logo = () => {
   return (
     <div style={{ textAlign: 'center' }}>
-      <img src="../../assets/images/logo.svg" alt="Logo" style={{ width: '90px'}} className='mt-1' />
+      <img src="../../assets/images/logo.svg" alt="Logo" style={{ width: '90px' }} className='mt-1' />
     </div>
   );
 }
@@ -77,7 +77,7 @@ function Navigation() {
               textDecoration: 'none',
             }}
           >
-            <Logo sx={{width:"100px"}} />
+            <Logo sx={{ width: "100px" }} />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -133,7 +133,7 @@ function Navigation() {
               textDecoration: 'none',
             }}
           >
-            <Logo sx={{width:"100px"}} />
+            <Logo sx={{ width: "100px" }} />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -173,10 +173,13 @@ function Navigation() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Link to={`/${setting.toLowerCase()}`} style={{ textDecoration: 'none', color: '#0d6182' }}>
+                    <Typography textAlign="center">{setting}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
+
           </Box>
         </Toolbar>
       </Container>
