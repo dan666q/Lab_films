@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -10,13 +10,22 @@ export default function EditFilms() {
     const [deleteSuccessMessage, setDeleteSuccessMessage] = useState('');
 
     const [films, setFilms] = useState({});
+    const [titleFilled, setTitleFilled] = useState(true);
+    const [yearFilled, setYearFilled] = useState(true);
+    const [nationFilled, setNationFilled] = useState(true);
+    const [imageFilled, setImageFilled] = useState(true);
+    const [trailerFilled, setTrailerFilled] = useState(true);
+    const [infoFilled, setInfoFilled] = useState(true);
+
     useEffect(() => {
         getData();
-    }, [])
+    }, []);
+
     const navigate = useNavigate();
     function handleClick() {
         navigate("/Dashboard");
     }
+
     function getData() {
         axios.get(`https://64abe6529edb4181202ec3ba.mockapi.io/Api/Films/${thisFilm.id}`)
             .then(function (response) {
@@ -26,6 +35,7 @@ export default function EditFilms() {
                 console.log(error);
             });
     }
+
     const [open, setOpen] = useState(false);
 
     function handleOpen() {
@@ -35,7 +45,21 @@ export default function EditFilms() {
     function handleClose() {
         setOpen(false);
     }
+
     function updateData() {
+        // Check if any field is blank
+        if (!films.Title || !films.Year || !films.Nation || !films.Image || !films.Trailer || !films.Info) {
+            // Update the state variables for each field
+            setTitleFilled(!!films.Title);
+            setYearFilled(!!films.Year);
+            setNationFilled(!!films.Nation);
+            setImageFilled(!!films.Image);
+            setTrailerFilled(!!films.Trailer);
+            setInfoFilled(!!films.Info);
+
+            return;
+        }
+
         axios.put(`https://64abe6529edb4181202ec3ba.mockapi.io/Api/Films/${thisFilm.id}`, {
             Title: films.Title,
             Year: films.Year,
@@ -55,22 +79,37 @@ export default function EditFilms() {
                 console.log(error);
             });
     }
+
     function changeText(event) {
         const { name, value } = event.target;
         setFilms(prevState => ({
             ...prevState,
             [name]: value
         }));
+        // Reset the corresponding field's filled state when it's being typed
+        switch (name) {
+            case 'Title':
+                setTitleFilled(!!value);
+                break;
+            case 'Year':
+                setYearFilled(!!value);
+                break;
+            case 'Nation':
+                setNationFilled(!!value);
+                break;
+            case 'Image':
+                setImageFilled(!!value);
+                break;
+            case 'Trailer':
+                setTrailerFilled(!!value);
+                break;
+            case 'Info':
+                setInfoFilled(!!value);
+                break;
+            default:
+                break;
+        }
     }
-    const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
-
-    const handleOpenDeleteDialog = () => {
-        setOpenDeleteDialog(true);
-    };
-
-    const handleCloseDeleteDialog = () => {
-        setOpenDeleteDialog(false);
-    };
 
     function deleteFilm() {
         axios.delete(`https://64abe6529edb4181202ec3ba.mockapi.io/Api/Films/${thisFilm.id}`)
@@ -87,6 +126,17 @@ export default function EditFilms() {
                 console.log(error);
             });
     }
+
+    const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
+
+    const handleOpenDeleteDialog = () => {
+        setOpenDeleteDialog(true);
+    };
+
+    const handleCloseDeleteDialog = () => {
+        setOpenDeleteDialog(false);
+    };
+
     const [openDeleteSuccessDialog, setOpenDeleteSuccessDialog] = useState(false);
 
     const handleOpenDeleteSuccessDialog = () => {
@@ -109,6 +159,8 @@ export default function EditFilms() {
                     onChange={changeText}
                     variant="outlined"
                     margin="normal"
+                    error={!titleFilled}
+                    helperText={!titleFilled && 'Please enter film\'s name'}
                 />
                 <TextField
                     fullWidth
@@ -118,6 +170,8 @@ export default function EditFilms() {
                     onChange={changeText}
                     variant="outlined"
                     margin="normal"
+                    error={!yearFilled}
+                    helperText={!yearFilled && 'Please enter film\'s year'}
                 />
                 <TextField
                     fullWidth
@@ -127,6 +181,8 @@ export default function EditFilms() {
                     onChange={changeText}
                     variant="outlined"
                     margin="normal"
+                    error={!nationFilled}
+                    helperText={!nationFilled && 'Please enter film\'s nation'}
                 />
                 <TextField
                     fullWidth
@@ -136,6 +192,8 @@ export default function EditFilms() {
                     onChange={changeText}
                     variant="outlined"
                     margin="normal"
+                    error={!imageFilled}
+                    helperText={!imageFilled && 'Please enter film\'s image'}
                 />
                 <TextField
                     fullWidth
@@ -145,6 +203,8 @@ export default function EditFilms() {
                     onChange={changeText}
                     variant="outlined"
                     margin="normal"
+                    error={!trailerFilled}
+                    helperText={!trailerFilled && 'Please enter film\'s trailer'}
                 />
                 <TextField
                     fullWidth
@@ -156,6 +216,8 @@ export default function EditFilms() {
                     rows={4}
                     variant="outlined"
                     margin="normal"
+                    error={!infoFilled}
+                    helperText={!infoFilled && 'Please enter film\'s information'}
                 />
                 <Button variant="contained" sx={{ backgroundColor: '#0d6182' }} onClick={updateData} className="ps-5 pe-5 mt-2">
                     Update
@@ -164,6 +226,7 @@ export default function EditFilms() {
             <Button className='ps-5 pe-5 mt-3' variant="outlined" sx={{ color: '#0d6182', border: 2 }} onClick={handleOpenDeleteDialog}>
                 Delete
             </Button>
+
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -186,6 +249,7 @@ export default function EditFilms() {
                     </Typography>
                 </Box>
             </Modal>
+
             <Dialog
                 open={openDeleteDialog}
                 onClose={handleCloseDeleteDialog}
@@ -205,6 +269,7 @@ export default function EditFilms() {
                     </Button>
                 </DialogActions>
             </Dialog>
+
             <Modal
                 open={openDeleteSuccessDialog}
                 onClose={handleCloseDeleteSuccessDialog}
@@ -228,6 +293,5 @@ export default function EditFilms() {
                 </Box>
             </Modal>
         </Container>
-
-    )
+    );
 }
