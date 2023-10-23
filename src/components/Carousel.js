@@ -1,5 +1,5 @@
 // CarouselComponent.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,11 +9,24 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions, Container, Box, Tooltip } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { Films } from '../shared/ListOfFilm';
+// import { Films } from '../shared/ListOfFilm';
 import '../styles/slick-custom.css'; // Import the CSS file
+import axios from 'axios';
 
 const Carousel = () => {
-    
+    const [films, setFilms] = useState([]);
+    useEffect(() => {
+        getData();
+    }, [])
+
+    function getData() {
+        const res = axios.get(`https://64abe6529edb4181202ec3ba.mockapi.io/Api/Films`)
+            .then(function (response) {
+                setFilms(response.data)
+            }).catch(function (error) {
+                console.log(error);
+            });
+    }
     const settings = {
         dots: true,
         infinite: true,
@@ -55,7 +68,7 @@ const Carousel = () => {
     return (
         <div className='ps-5 pe-5'>
             <Slider {...settings}>
-                {Films.map((film) => (
+                {films.map((film) => (
                     <Card sx={{ maxWidth: '80%', }} className='mt-5'>
                         <CardActionArea >
                             <Link to={`/${film.id}`} style={{ textDecoration: 'none', color: "inherit" }}>
