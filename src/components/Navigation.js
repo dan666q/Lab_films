@@ -12,6 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
+import LoginGoogleComponent from './LoginGoogle';
+import LoginGoogle from './LoginGoogle';
 const pages = [
   {
     name: 'Home',
@@ -28,6 +30,10 @@ const pages = [
   {
     name: 'About',
     link: '/about'
+  },
+  {
+    name: 'Dashboard',
+    link: '/dashboard'
   }
 ];
 const settings = ['Account', 'Dashboard', 'Logout'];
@@ -148,7 +154,7 @@ function Navigation() {
               </Link>
             ))}
           </Box>
-
+{/* 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -180,7 +186,8 @@ function Navigation() {
               ))}
             </Menu>
 
-          </Box>
+          </Box> */}
+          <LoginGoogle />
         </Toolbar>
       </Container>
     </AppBar>
